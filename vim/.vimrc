@@ -7,7 +7,10 @@ endif
     Plug 'neoclide/coc.nvim', {'branch':'release'}
     Plug 'jackguo380/vim-lsp-cxx-highlight' 
     Plug 'rafi/awesome-vim-colorschemes'
-    Plug 'cdelledonne/vim-cmake' 
+    Plug 'helino/vim-nasm'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'iosmanthus/vim-nasm'
+   " Plug 'cdelledonne/vim-cmake' 
     "`Plug 'SirVer/ultisnips' 
     "Plug 'honza/vim-snippets' 
     "Plug 'prabirshrestha/async.vim' Plug 'prabirshrestha/vim-lsp' Plug
@@ -25,10 +28,11 @@ autocmd BufEnter * silent! lcd %:p:h/../
 map <F4> :1000cp<Cr>zvzz:cc<Cr>
 map <F5> :cp<Cr>zvzz:cc<Cr>
 map <F6> :cn<Cr>zvzz:cc<Cr>
-map <F7> :wall \| make all<Cr><Cr>
-map <F8> :make run<Cr><Cr>
-map <F9> :make clean<Cr>
+map <F7> :wall \| make all<Cr><Cr><Cr>
+map <F8> :make run<Cr><Cr><Cr>
+map <F9> :make clean<Cr><Cr><Cr>
 map <F1> :copen<Cr> 
+map <F2> :cclose<Cr>
 syntax on
 set number
 set expandtab
@@ -37,8 +41,9 @@ set shiftwidth=4
 set noswapfile
 " set noshowmode
 
-colorscheme abstract
+colorscheme abstract 
 
+autocmd BufNewFile,BufRead *.asm set filetype=nasm
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8
